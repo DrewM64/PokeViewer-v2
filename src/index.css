@@ -5,10 +5,18 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  color: #e7e7e7;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  width: 100vw;
+  min-height: 100vh;
+  background: rgb(44, 0, 145);
+  background: linear-gradient(
+    0deg,
+    rgba(44, 0, 145, 1) 0%,
+    rgba(9, 34, 121, 1) 36%,
+    rgba(158, 151, 255, 1) 100%
+  );
+  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
