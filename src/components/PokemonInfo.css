@@ -1,0 +1,26 @@
+.pokemonInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+}
+
+#pokeId {
+  text-align: center;
+}
+
+.cry {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#playButton {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.bioInfo {
+  display: flex;
+  justify-content: center;
+}
