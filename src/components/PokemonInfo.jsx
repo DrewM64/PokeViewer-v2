@@ -32,13 +32,6 @@ export function PokemonInfo() {
 
   return (
     <div className="pokemonInfo">
-      <p className="pokeId">
-        <span className="number">#428</span> -{" "}
-        <span className="name">Lopunny</span>
-      </p>
-      <p>
-        <span className="species">Rabbit</span> Pokemon
-      </p>
       <figure className="cry">
         <audio
           id="cryAudio"
@@ -46,6 +39,13 @@ export function PokemonInfo() {
         />
         <button id="playButton">Play cry</button>
       </figure>
+      <p className="pokeId">
+        <span className="number">#428</span> -{" "}
+        <span className="name">Lopunny</span>
+      </p>
+      <p>
+        <span className="species">Rabbit</span> Pokemon
+      </p>
       <div className="bioInfo">
         <p className="height">Height: 3'11"</p>
         <p className="weight">Weight: 73.4 lbs</p>
