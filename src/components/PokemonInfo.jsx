@@ -1,7 +1,11 @@
 import { useEffect } from "react";
 import "./PokemonInfo.css";
 
-export function PokemonInfo() {
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function PokemonInfo({ pokemon, species }) {
   useEffect(() => {
     const cryAudio = document.getElementById("cryAudio");
     const playButton = document.getElementById("playButton");
@@ -40,11 +44,13 @@ export function PokemonInfo() {
         <button id="playButton">Play cry</button>
       </figure>
       <p className="pokeId">
-        <span className="number">#428</span> -{" "}
-        <span className="name">Lopunny</span>
+        <span className="number">#{!pokemon ? "???" : pokemon?.id}</span> -{" "}
+        <span className="name">
+          {!pokemon ? "MissingNo" : capitalizeFirstLetter(pokemon?.name)}
+        </span>
       </p>
       <p>
-        <span className="species">Rabbit</span> Pokemon
+        <span className="species">Rabbit Pokemon</span>
       </p>
       <div className="bioInfo">
         <p className="height">Height: 3'11"</p>
