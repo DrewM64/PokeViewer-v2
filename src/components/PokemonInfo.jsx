@@ -6,6 +6,11 @@ function capitalizeFirstLetter(string) {
 }
 
 export function PokemonInfo({ pokemon, species }) {
+  var realFeet = pokemon.height * 0.32808; //dm to decimal ft
+  var feet = Math.floor(realFeet); // rounding decimal ft to whole number
+  var inches = Math.round((realFeet - feet) * 12); //get inches as a whole number
+  var weightInLbs = (pokemon.weight * 0.22046).toFixed(2); //hg to lbs
+
   useEffect(() => {
     const cryAudio = document.getElementById("cryAudio");
     const playButton = document.getElementById("playButton");
@@ -53,8 +58,10 @@ export function PokemonInfo({ pokemon, species }) {
         <span className="species">Rabbit Pokemon</span>
       </p>
       <div className="bioInfo">
-        <p className="height">Height: 3'11"</p>
-        <p className="weight">Weight: 73.4 lbs</p>
+        <p className="height">
+          Height: {inches >= 12 ? feet + 1 : feet}'{inches >= 12 ? 0 : inches}"
+        </p>
+        <p className="weight">Weight: {weightInLbs} lbs</p>
       </div>
       <p>
         Type: <span className="type">Normal</span>
