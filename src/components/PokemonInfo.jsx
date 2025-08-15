@@ -48,17 +48,51 @@ export function PokemonInfo({ pokemon, species }) {
     }
   }, []);
 
+  if (pokemon === null) return null; // nothing searched yet
+
+  if (pokemon === false) {
+    return (
+      <div className="pokemonInfo">
+        <p className="pokeId">
+          <span className="number">#???</span> -{" "}
+          <span className="name">MissingNo</span>
+        </p>
+        <p className="species">NotFound Pokemon </p>
+        <div className="bioInfo">
+          <p className="height">Height: ?'??"</p>
+          <p className="weight">Weight: ??? lbs</p>
+        </div>
+        <p>
+          Type: <span className="type">NotFound</span>
+        </p>
+        <div className="dexInfo">
+          <p>
+            <em>Pokemon info not found.</em>
+          </p>
+          <p>
+            <em>Please double-check your search query.</em>
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="pokemonInfo">
-      <figure className="cry">
-        <audio id="cryAudio" src={pokemon?.cries.latest} />
-        <button id="playButton">Play cry</button>
-      </figure>
+      {pokemon && pokemon.cries?.latest && (
+        <figure className="cry">
+          <audio id="cryAudio" src={pokemon.cries.latest} />
+          <button
+            id="playButton"
+            onClick={() => document.getElementById("cryAudio").play()}
+          >
+            Play cry
+          </button>
+        </figure>
+      )}
       <p className="pokeId">
-        <span className="number">#{!pokemon ? "???" : pokemon?.id}</span> -{" "}
-        <span className="name">
-          {!pokemon ? "MissingNo" : capitalizeFirstLetter(pokemon?.name)}
-        </span>
+        <span className="number">#{pokemon?.id}</span> -{" "}
+        <span className="name">{capitalizeFirstLetter(pokemon?.name)}</span>
       </p>
       <p className="species">
         {species?.genera.find((num) => num.language.name === "en").genus}{" "}

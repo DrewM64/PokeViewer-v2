@@ -8,11 +8,14 @@ import { PokemonArt } from "./components/PokemonArt.jsx";
 import { PokemonInfo } from "./components/PokemonInfo.jsx";
 
 function App() {
+  const [pokemonName, setPokemonName] = useState("lopunny");
   const [pokemon, setPokemon] = useState(null);
   const [species, setSpecies] = useState(null);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/lopunny") //replace lopunny with user input
+    if (!pokemonName) return;
+
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`) //replace lopunny with user input
       .then((res) => {
         return res.json();
       })
@@ -29,13 +32,18 @@ function App() {
       .then((speciesData) => {
         console.log(speciesData);
         setSpecies(speciesData);
+      })
+      .catch((err) => {
+        console.error("Error fetching Pokemon", err);
+        setPokemon(false);
+        setSpecies(null);
       });
-  }, []); // only run on first render
+  }, [pokemonName]); // Re-run on change to pokemonName
 
   return (
     <>
       <Logo />
-      <SearchBar />
+      <SearchBar onSearch={setPokemonName} />
       <PokemonArt pokemon={pokemon} />
       <PokemonInfo pokemon={pokemon} species={species} />
     </>
