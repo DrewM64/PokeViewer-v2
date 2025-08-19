@@ -62,12 +62,16 @@ export function SearchBar({ onSearch }) {
   return (
     <div className="search-container" style={{ position: "relative" }}>
       <input
+        className="search-input"
         type="text"
         value={query}
         placeholder="Search Pokémon..."
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
       />
+      <button type="submit" class="search-button">
+        Search
+      </button>
       {results.length > 0 && (
         <ul
           className="results-box"

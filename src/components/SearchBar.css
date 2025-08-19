@@ -1,4 +1,37 @@
-.searchInput {
+/* .searchInput {
   display: flex;
   justify-content: center;
+} */
+
+.search-container {
+  display: flex;
+  border: 2px solid rgba(44, 0, 145, 1);
+  border-radius: 20px;
+  background: #e7e7e7;
+  padding: 5px;
+  align-items: center;
+  width: 80%;
+}
+
+.search-input {
+  flex: 1; /* Allows the input to grow and take remaining space */
+  border: none;
+  outline: none; /* Remove focus outline */
+  background: #e7e7e7;
+  color: rgba(9, 34, 121, 1);
+  padding: 5px;
+  font-size: 16px;
+}
+.search-input:placeholder-shown {
+  color: white;
+}
+
+.search-button {
+  background-color: rgba(158, 151, 255, 1);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 5px; /* Add some space between input and button */
 }

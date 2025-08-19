@@ -41,12 +41,12 @@ function App() {
   }, [pokemonName]); // Re-run on change to pokemonName
 
   return (
-    <>
+    <main>
       <Logo />
       <SearchBar onSearch={setPokemonName} />
       <PokemonArt pokemon={pokemon} />
       <PokemonInfo pokemon={pokemon} species={species} />
-    </>
+    </main>
   );
 }
 
