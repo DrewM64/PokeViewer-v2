@@ -44,6 +44,7 @@ function App() {
     <main>
       <Logo />
       <SearchBar onSearch={setPokemonName} />
+
       <PokemonArt pokemon={pokemon} />
       <PokemonInfo pokemon={pokemon} species={species} />
     </main>

@@ -69,7 +69,7 @@ export function SearchBar({ onSearch }) {
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <button type="submit" class="search-button">
+      <button type="submit" className="search-button">
         Search
       </button>
       {results.length > 0 && (
