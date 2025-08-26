@@ -103,13 +103,16 @@ export function PokemonInfo({ pokemon, species }) {
         </p>
         <p className="weight">Weight: {weightInLbs} lbs</p>
       </div>
-      <p>
+      <p className="types">
         Type:{" "}
-        <span className="type">
-          {pokemon?.types
-            .map((typeInfo) => capitalizeFirstLetter(typeInfo.type.name))
-            .join(", ")}
-        </span>
+        {pokemon?.types.map((typeInfo) => {
+          const typeName = typeInfo.type.name.toLowerCase();
+          return (
+            <span key={typeName} className={`type ${typeName}`}>
+              {capitalizeFirstLetter(typeName)}
+            </span>
+          );
+        })}
       </p>
       <div className="dexInfo">{latestFlavorTexts}</div>
     </div>
