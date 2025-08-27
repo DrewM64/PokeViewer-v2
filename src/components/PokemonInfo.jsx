@@ -91,8 +91,15 @@ export function PokemonInfo({ pokemon, species }) {
         </figure>
       )}
       <p className="pokeId">
-        <span className="number">#{pokemon?.id}</span> -{" "}
-        <span className="name">{capitalizeFirstLetter(pokemon?.name)}</span>
+        <span className="number">
+          #
+          {
+            species?.pokedex_numbers?.find(
+              (num) => num.pokedex.name === "national"
+            ).entry_number
+          }
+        </span>{" "}
+        - <span className="name">{capitalizeFirstLetter(pokemon?.name)}</span>
       </p>
       <p className="species">
         {species?.genera.find((num) => num.language.name === "en").genus}{" "}
