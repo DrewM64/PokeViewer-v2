@@ -8,6 +8,7 @@
 #playButton {
   padding: 5px 20px;
   border-radius: 10px;
+  font-size: max(16px, 1.5vw);
 }
 
 /* pokemon info text */
@@ -22,7 +23,7 @@
 
 .pokeId {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.5em;
   font-weight: 600;
   padding-top: 0.5rem;
 }
